@@ -1,2 +1,17 @@
-<h1>{{recipeCh.name}}</h1>
+<h1>Edit Recipe: {{recipeCh.name}}</h1>
+
+<div>
+  <label for="name">Name:</label>
+  <input type="text" id="name" [(ngModel)]="editedRecipe.name">
+</div>
+<div>
+  <label for="description">Description:</label>
+  <textarea id="description" [(ngModel)]="editedRecipe.description"></textarea>
+</div>
+<div>
+  <label for="imgUrl">Image URL:</label>
+  <input type="text" id="imgUrl" [(ngModel)]="editedRecipe.imgUrl">
+</div>
+
+<button type="button" class="btn btn-primary" (click)="saveChanges()">Save</button>
 <button type="button" class="btn btn-danger" (click)="deleteItem()">Delete Item</button>
