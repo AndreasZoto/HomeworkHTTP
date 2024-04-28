@@ -1,0 +1,80 @@
+<p>shopping-list works!</p>
+
+<button class="btn btn-primary" (click)="onlyOdd=!onlyOdd">Change numbers</button>
+
+<!--<div *appUnless="!onlyOdd">-->
+<!--  <ul class="list-group">-->
+<!--    <li-->
+<!--      [ngClass]="{odd: number % 2 !== 0}"-->
+<!--      [ngStyle]="{backgroundColor: number % 2 !== 0 ? 'yellow' : 'transparent'}"-->
+<!--      *ngFor="let number of oddNumbers"-->
+<!--    >{{number}}</li>-->
+<!--  </ul>-->
+<!--</div>-->
+<!--&lt;!&ndash;<div *ngIf="!onlyOdd">&ndash;&gt;-->
+<!--&lt;!&ndash;  <ul class="list-group">&ndash;&gt;-->
+<!--&lt;!&ndash;    <li&ndash;&gt;-->
+<!--&lt;!&ndash;      [ngStyle]="{backgroundColor: number % 2 !== 0 ? 'transparent' : 'red'}"&ndash;&gt;-->
+<!--&lt;!&ndash;      *ngFor="let number of evenNumbers"&ndash;&gt;-->
+<!--&lt;!&ndash;    >{{number}}</li>&ndash;&gt;-->
+<!--&lt;!&ndash;  </ul>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;<ng-template [ngIf]="!onlyOdd">&ndash;&gt;-->
+<!--&lt;!&ndash;  <div>&ndash;&gt;-->
+<!--&lt;!&ndash;    <ul>&ndash;&gt;-->
+<!--&lt;!&ndash;      <li&ndash;&gt;-->
+<!--&lt;!&ndash;        *ngFor="let number of evenNumbers"&ndash;&gt;-->
+<!--&lt;!&ndash;      >{{number}}</li>&ndash;&gt;-->
+<!--&lt;!&ndash;    </ul>&ndash;&gt;-->
+<!--&lt;!&ndash;  </div>&ndash;&gt;-->
+<!--&lt;!&ndash;</ng-template>&ndash;&gt;-->
+
+<!--<div *appUnless="onlyOdd">-->
+<!--  <ul>-->
+<!--    <li-->
+<!--      *ngFor="let number of evenNumbers"-->
+<!--    >{{number}}</li>-->
+<!--  </ul>-->
+<!--</div>-->
+
+
+<!--<p basicHighlight>This paragraph is changed by custom directive</p>-->
+<!--<hr>-->
+<!--<p [betterHighlight]="'magenta'" defaultColor="yellow" >This paragraph is changed by custom directive</p>-->
+
+<!--{{ 'angular'}}-->
+<!--<br>-->
+<!--{{ 'angular' | uppercase }}-->
+<!--<br>-->
+<!--{{ today }}-->
+<!--<br>-->
+<!--{{ today | date: 'short'}}-->
+<!--<br>-->
+<!--{{ today | date: 'd MMM, y' | uppercase}}-->
+<!--<br>-->
+<!--&lt;!&ndash;{{ today | uppercase  | date: 'd MMM, y'}}&ndash;&gt;-->
+<!--<br>-->
+<!--{{varJson.name | uppercase}}-->
+<!--<br>-->
+<!--{{varJson | json}}-->
+
+<br>
+<input  type="text" [(ngModel)]="filterInput">
+<br>
+<ul class="list-group">
+  <li
+    *ngFor="let server of servers | filter: filterInput: 'name'"
+  >
+    <span>{{server.status}}</span>
+    <strong>{{server.name}}</strong>
+  </li>
+</ul>
+
+
+
+
+
+
+
+

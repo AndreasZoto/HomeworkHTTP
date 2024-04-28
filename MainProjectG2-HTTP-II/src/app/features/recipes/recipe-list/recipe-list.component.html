@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-xs-12">
+<!--    <input class="form-control" (change)="inputChange($event)">-->
+    <input class="form-control" #inputElement>
+    <br>
+    <button class="btn btn-success" (click)="add()">New Recipe</button>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-xs-12">
+    <app-recipe-item
+    *ngFor="let recipe of recipes"
+    [recipe2]="recipe"
+    (recipeSelected)="onSelected(recipe)"
+    >
+      <div>
+        <p>this is declared in recipe-list component</p>
+      </div>
+    </app-recipe-item>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" id="name" [(ngModel)]="name">
+
+    <label for="desc">Description:</label>
+    <input type="text" id="desc" [(ngModel)]="desc">
+
+    <label for="imgUrl">Image URL:</label>
+    <input type="text" id="imgUrl" [(ngModel)]="imgUrl">
+  </div>
+
+  <button type="button" class="btn btn-primary" (click)="postNewItem()">Create new item</button>
+  <div class="col-md-7">
+    <app-recipe-list
+    (recipeWasSelected)="recipe = $event"
+    ></app-recipe-list>
+  </div>
+  <div class="col-md-5">
+    <app-recipe-detail
+      *ngIf="recipe; else noRecipeSelected"
+      [recipeCh]="recipe"></app-recipe-detail>
+    <ng-template #noRecipeSelected>
+      <h3 class="warning">No recipe selected</h3>
+    </ng-template>
+  </div>
+</div>

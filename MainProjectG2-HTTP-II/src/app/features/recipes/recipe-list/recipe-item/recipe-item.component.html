@@ -1,0 +1,12 @@
+<a class="list-group-item clearfix"
+   (click)="onItemClick()">
+  <div class="pull-left">
+    <h4 class="list-group-item-heading">{{recipe.name}}</h4>
+    <p class="list-group-item-text">{{recipe.description | shorten: 6}}</p>
+    <p class="list-group-item-text">{{recipe.description | shorten: 12}}</p>
+  </div>
+  <ng-content></ng-content>
+  <span class="pull-right">
+        <img [src]="recipe.imgUrl" [alt]="recipe.name" class="img-responsive" style="max-height: 150px;">
+  </span>
+</a>
