@@ -1,6 +1,6 @@
-import {Component, Input} from '@angular/core';
-import {RecipeModel} from "../../../shared/models/recipe.model";
-import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
+import { Component, Input } from '@angular/core';
+import { RecipeModel } from 'src/app/shared/models/recipe.model';
+import { RecipeService } from 'src/app/shared/services/recipe.service';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -8,23 +8,18 @@ import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
   styleUrls: ['./recipe-detail.component.css']
 })
 export class RecipeDetailComponent {
-
   @Input() recipeCh!: RecipeModel;
-  url = 'http://localhost:3000/recipes'
 
-  constructor(
-    private http: HttpClient,
-  ) {
-  }
+  constructor(private recipeService: RecipeService) {}
 
   deleteItem() {
-
-    this.http.delete(this.url + '/' + this.recipeCh.id, {
-      params: new HttpParams().set('id', this.recipeCh.id as string),
-    } ).subscribe(value =>
-    {
-      console.log(value)
-
-    })
+    if (this.recipeCh && this.recipeCh.id) {
+      this.recipeService.deleteRecipe(this.recipeCh.id).subscribe(response => {
+        console.log(response);
+      });
+    } else {
+      console.error('Recipe ID is undefined.');
+    }
   }
+  
 }
