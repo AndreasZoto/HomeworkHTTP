@@ -11,6 +11,7 @@ export class RecipeListComponent implements OnInit {
   @Output() recipeWasSelected = new EventEmitter<RecipeModel>();
   @ViewChild('inputElement') input!: ElementRef;
   recipes!: RecipeModel[];
+  deletionInfo: string = '';
 
   constructor(private recipeService: RecipeService) {}
 
@@ -32,4 +33,12 @@ export class RecipeListComponent implements OnInit {
   add() {
     console.log(this.input.nativeElement.value);
   }
+
+  deleteRecipe(id: string) {
+    this.recipeService.deleteRecipe(id).subscribe(() => {
+      this.recipes = this.recipes.filter(recipe => recipe.id !== id);
+      this.deletionInfo = `Recipe with ID ${id} deleted successfully.`;
+    });
+  }
+
 }
